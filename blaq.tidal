@@ -1,0 +1,161 @@
+--  ___  ___  ________   ________  _______   ________ ___  ________   _______   ________
+--  |\  \|\  \|\   ___  \|\   ___ \|\  ___ \ |\  _____\\  \|\   ___  \|\  ___ \ |\   ___ \
+--  \ \  \\\  \ \  \\ \  \ \  \_|\ \ \   __/|\ \  \__/\ \  \ \  \\ \  \ \   __/|\ \  \_|\ \
+--   \ \  \\\  \ \  \\ \  \ \  \ \\ \ \  \_|/_\ \   __\\ \  \ \  \\ \  \ \  \_|/_\ \  \ \\ \
+--    \ \  \\\  \ \  \\ \  \ \  \_\\ \ \  \_|\ \ \  \_| \ \  \ \  \\ \  \ \  \_|\ \ \  \_\\ \ ___
+--     \ \_______\ \__\\ \__\ \_______\ \_______\ \__\   \ \__\ \__\\ \__\ \_______\ \_______\\__\
+--      \|_______|\|__| \|__|\|_______|\|_______|\|__|    \|__|\|__| \|__|\|_______|\|_______\|__|
+
+fuck = hush
+setcps (110/60/4)
+
+d1
+  $ n "<c'min'5 g'min'5 f'maj'5 c'maj'5>"
+    # s "superfm"
+    # velocity 1.2
+    # sustain 4
+    # voice 0
+    # octave 4
+    # shape 0.2
+    # delay 2
+    # delayt 0.125
+    # hpf 100
+    # bandf 400
+
+d1
+  $ n "<c'min'5 g'min'5 f'maj'5 c'maj'5>"
+    # s "superhammond"
+    # voice 2
+    # decay 0.2
+    # octave 4
+    # leslie 2
+    # shape 0.2
+    # delay 2
+    # delayt 0.125
+    # hpf 100
+    # bandf 800
+
+d1 $ silence
+
+d2
+  $ n "<c'min'5 [g'min'5 ~ g'min'5] f'maj'5 [c'maj'5 ~ c'maj'5]>"
+    # s "superfm"
+    # attack 0.9
+    # release 0.1
+    # voice 5
+    # octave 5
+    # leslie 2
+    # shape 0.6
+
+d2
+  $ n "<c'min'5*3 [g'min'5 <g'min'5*3_ g'min'5> d'min'5] f'maj'5*5 [c'maj'5*2_ c'maj'5]>"
+    # s "superfm"
+    # attack 0.8
+    # release 0.2
+    # voice 5
+    # octave 5
+    # leslie 2
+    # shape 0.6
+
+d2 $ silence
+
+d3
+  $ arp "<down up>"
+  $ n "<c'min'4 g'min'4 f'maj'4 c'maj'4>"
+    # sound "supervibe"
+    # sustain 2
+    # velocity 0.5
+    # accelerate 0.8
+    # decay 0.7
+    # octave 6
+    # shape 0.1
+    # bandf 4000
+    # leslie 0.2
+    # pan 0.75
+
+d3
+  $ arp "<down up>"
+  $ n "<c'min'8 g'min'8 f'maj'8 c'maj'8>"
+    # sound "supervibe"
+    # sustain 2
+    # velocity 0.7
+    # accelerate 0.9
+    # decay 0.7
+    # octave 6
+    # shape 0.1
+    # bandf 4000
+    # leslie 0.5
+    # pan 0.75
+
+
+d3 $ silence
+
+d4
+  $ fast 2
+  $ struct ("t(3,8)")
+  $ s "<super808:6!3 super808:7 super808:6? super808:7>"
+    # speed 1
+    # distort 0
+    # room 0.4
+    # shape 0.4
+    # gain 1.4
+    # hpf 0
+    # lpf (range 1000 1500 $ slow 4 $ sine)
+
+d4
+  $ fast 2
+  $ struct ("t(3,8)")
+  $ s "super808:4"
+    # speed 1
+    # distort 0
+    # room 0.4
+    # shape 0.7
+    # gain 1.4
+    # hpf 0
+    # lpf (range 1000 1500 $ slow 4 $ sine)
+
+d4 $ silence
+
+d5
+  $ struct ("f t")
+  $ s "cp"
+    # speed 0.8
+    # distort 0.2
+    # room 0.6
+    # shape 0.6
+    # gain 1.2
+    # hpf 200
+    # lpf 4000
+
+d5
+  $ every 4 (fast 2)
+  $ jux (off 0.125 (# distort (perlin - 0.25)))
+  $ struct ("f t")
+  $ s "superclap:0"
+    # speed 0.7
+    # distort 0.1
+    # room 0.6
+    # shape 0.7
+    # gain 1.4
+    # hpf 200
+    # lpf (range 1200 4000 $ slow 8 $ sine)
+
+d5 $ silence
+
+d6
+  $ fast 2
+  $ stut 2 0.5 0.0625
+  $ struct ("t(3,8)")
+  $ s "808bd:4"
+  # sustain 2
+  # room 0.3
+  # shape 0.9
+  # gain 1.5
+  # lpf 4000
+  # hpf 100
+  # octer 0.7
+  # fshift 1
+
+d6 $ silence
+
+fuck
